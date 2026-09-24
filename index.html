@@ -24,12 +24,12 @@
 <meta name="twitter:description" content="12 questions, 6 AI models, 3 runs each; the published reference under every card.">
 <meta name="twitter:image" content="https://gundoc9.github.io/bp-targets/bp-targets-card.png">
 
-<meta name="theme-color" content="#F4F5F2">
+<meta name="theme-color" content="#FFFFFF">
 <title>Blood pressure targets in paediatric anaesthesia · Disagreement checker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@700&family=Big+Shoulders+Display:wght@700&family=Instrument+Sans:wght@400;700&display=swap">
 <style>
-:root{--ground:#F4F5F2;--ink:#14181B;--muted:#5F6A70;--col:#0F3A44;--colink:#F4F5F2;--accent:#D7263D;--rule:#D3D7D5;--sheet:#FFFFFF;
+:root{--ground:#FFFFFF;--ink:#14181B;--muted:#5F6A70;--col:#0F3A44;--colink:#FFFFFF;--accent:#E3163B;--rule:#D3D7D5;--sheet:#FFFFFF;
   --display:"Big Shoulders","Big Shoulders Display","Arial Narrow","Helvetica Neue Condensed",Impact,sans-serif;
   --sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
 *{box-sizing:border-box}
@@ -115,7 +115,7 @@ textarea,input{font:inherit;color:inherit}
 .cover .ck i.o{display:block;width:11px;height:11px;border:1.8px solid var(--ink);border-radius:50%;box-sizing:border-box}
 .cover .ck svg{display:block}
 .cover .cactions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:0 0 auto}
-.cover .begin{background:var(--ink);color:var(--ground);border:1.5px solid var(--ink);border-radius:999px;padding:0 28px;font-family:var(--sans);font-weight:700;font-size:16px;min-height:48px}
+.cover .begin{background:var(--col);color:var(--colink);border:1.5px solid var(--col);border-radius:999px;padding:0 28px;font-family:var(--sans);font-weight:700;font-size:16px;min-height:48px}
 .cover .begin:disabled{opacity:.4}
 .cover .clink{color:var(--muted);text-decoration:underline;text-underline-offset:3px;font-size:15px;padding:0 4px}
 .cover .cfoot{font-size:12.5px;color:var(--muted);line-height:1.45;margin:26px 0 0}
@@ -567,7 +567,7 @@ function drawScale(box, qres, models, s, kind){
   if (K.axis[0]) el('text', { x:wide ? scaleW / 2 : 8, y:plotTop - 44, 'text-anchor':wide ? 'middle' : 'start', 'font-family':'var(--display)', 'font-weight':700, 'font-size':15, fill:C('--ink') }, K.axis[0]);
   el('text', { x:wide ? scaleW / 2 : 8, y:plotTop - 28, 'text-anchor':wide ? 'middle' : 'start', 'font-size':11.5, fill:C('--muted'), 'font-family':'var(--sans)' }, K.axis[1]);
   for (let i = 0; i <= lanes; i++){ const x = laneX0 + i * laneW; el('line', { x1:x, x2:x, y1:plotTop, y2:plotTop + plotH, stroke:C('--ink'), 'stroke-opacity':.08 }); }
-  if (s.min !== s.max) el('rect', { x:laneX0, y:y(s.max), width:lanes * laneW, height:y(s.min) - y(s.max), fill:C('--accent'), 'fill-opacity':.09 });
+  if (s.min !== s.max) el('rect', { x:laneX0, y:y(s.max), width:lanes * laneW, height:y(s.min) - y(s.max), fill:C('--accent'), 'fill-opacity':.14 });
   if (s.mode) el('line', { x1:laneX0, x2:W - 16, y1:y(s.mode.value), y2:y(s.mode.value), stroke:C('--accent'), 'stroke-width':1.8, 'stroke-dasharray':'6 5' });
   el('line', { x1:laneX0, x2:W - 16, y1:plotTop + plotH, y2:plotTop + plotH, stroke:C('--ink'), 'stroke-width':1.2 });
   el('text', { x:wide ? scaleW - 16 : 8, y:baseY + 5, 'text-anchor':wide ? 'end' : 'start', 'font-size':11.5, fill:C('--muted'), 'font-family':'var(--sans)' }, 'none');
@@ -623,7 +623,7 @@ function drawCats(box, qres, models, s, kind){
       lines.forEach((ln, li) => el('text', { x:scaleW / 2, y:y0 + li * lh, 'text-anchor':'middle', 'font-family':'var(--sans)', 'font-weight':700, 'font-size':labelPx, fill:C('--colink'), 'letter-spacing':'0.06em' }, ln));
     }
     if (ci) el('line', { x1:laneX0, x2:W - 16, y1:plotTop + ci * rowH, y2:plotTop + ci * rowH, stroke:C('--ink'), 'stroke-opacity':.12 });
-    if (s.cats[c]) el('rect', { x:laneX0, y:plotTop + ci * rowH, width:lanes * laneW, height:rowH, fill:C('--accent'), 'fill-opacity': .04 + .09 * s.cats[c] / Math.max(1, s.total) });
+    if (s.cats[c]) el('rect', { x:laneX0, y:plotTop + ci * rowH, width:lanes * laneW, height:rowH, fill:C('--accent'), 'fill-opacity': .06 + .14 * s.cats[c] / Math.max(1, s.total) });
   });
   for (let i = 0; i <= lanes; i++){ const x = laneX0 + i * laneW; el('line', { x1:x, x2:x, y1:plotTop, y2:plotTop + plotH, stroke:C('--ink'), 'stroke-opacity':.08 }); }
   el('line', { x1:laneX0, x2:W - 16, y1:plotTop + plotH, y2:plotTop + plotH, stroke:C('--ink'), 'stroke-width':1.2 });
@@ -697,7 +697,9 @@ window.addEventListener('resize', redraw);
 if (window.ResizeObserver) new ResizeObserver(redraw).observe($('#chart'));
 
 // ---------- setup ----------
-function openSetup(){ $('#setup').hidden = false; renderSetup(); }
+function setupAllowed(){ return /(^|[#?&])setup(=|&|$)/i.test(location.hash) || /(^|[?&])setup(=|&|$)/i.test(location.search); }
+function applySetupAccess(){ const on = setupAllowed(); ['#coverSetup', '#setupBtn'].forEach(s => { const b = $(s); if (b) b.hidden = !on; }); if (!on && !$('#setup').hidden) closeSetup(); }
+function openSetup(){ if (!setupAllowed()) return; $('#setup').hidden = false; renderSetup(); }
 function closeSetup(){ $('#setup').hidden = true; renderScreen(); }
 $('#setupBtn').addEventListener('click', openSetup);
 $('#doneBtn').addEventListener('click', closeSetup);
@@ -906,8 +908,10 @@ try {
 if (window.EMBEDDED_RUN && !Object.keys(results).length){ const j = window.EMBEDDED_RUN; if (j.questions) questions = j.questions; if (j.results) results = j.results; if (j.meta) meta = j.meta; ({ questions, results } = migrate(questions, results)); questions.forEach(q => { if (!q.kind){ const i = parseInt(String(q.id).slice(1), 10) - 1; q.kind = DEFAULT_QUESTIONS[i] ? DEFAULT_QUESTIONS[i][1] : 'map'; } }); save('questions', questions); save('results', results); save('meta', meta); }
 if (questions.length === 0 || (meta && meta.sample && questions.every(q => /^s\d$/.test(q.id)))){ const bk = load('questions_backup', null); questions = (bk && bk.length && !bk.every(q => /^s\d$/.test(q.id))) ? bk : defaults(); if (meta && meta.sample){ results = {}; verdicts = {}; meta = null; save('results', results); save('verdicts', verdicts); save('meta', meta); } save('questions', questions); }
 renderScreen();
+applySetupAccess();
 openCover();
-if (navigator.onLine) loadCatalogue();
+if (navigator.onLine && setupAllowed()) loadCatalogue();
+window.addEventListener('hashchange', () => { applySetupAccess(); if (setupAllowed() && navigator.onLine && !catalogue.length) loadCatalogue(); });
 } catch(e){ const c = $('#cover'); c.hidden = false; const m = document.createElement('p'); m.className = 'cwhat'; m.style.color = 'var(--accent)'; m.textContent = 'Something stopped the page from starting: ' + (e && e.message ? e.message : e) + '. Reload the page; if it happens again, send this message to me.'; c.querySelector('.cinner').insertBefore(m, c.querySelector('.cactions')); }
 window.DC = { parseAnswer, summarise, pickNewest, splitQ, loadSample, go, FAMILIES, SYSTEM };
 })();
