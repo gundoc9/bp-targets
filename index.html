@@ -119,6 +119,7 @@ textarea,input{font:inherit;color:inherit}
 .cover .begin:disabled{opacity:.4}
 .cover .clink{color:var(--muted);text-decoration:underline;text-underline-offset:3px;font-size:15px;padding:0 4px}
 .cover .cfoot{font-size:12.5px;color:var(--muted);line-height:1.45;margin:26px 0 0}
+.cover .cfoot a,.setup .foot a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 @media (max-height:720px){.cover .ctitle{font-size:34px}.cover .csub{font-size:15px;margin-bottom:10px}.cover .cwhat{font-size:14.5px;margin-bottom:10px}.cover .chow{font-size:13px;margin-bottom:14px}.cover .cinner{padding-top:18px}}
 @media (min-width:700px){.cover .cband{flex-basis:60px}.cover .cinner{max-width:none;padding:56px 64px 32px 48px}.cover .ctitle{font-size:72px;max-width:24ch}.cover .csub{font-size:20px}.cover .cwhat{font-size:20px;max-width:58ch}.cover .chow{font-size:17px;max-width:62ch}.cover .begin{font-size:18px;min-height:56px;padding:0 36px}.cover .cfoot{font-size:14px}}
 @media (min-width:1100px){.cover .ctitle{font-size:88px}}
@@ -172,7 +173,7 @@ textarea,input{font:inherit;color:inherit}
     </ul>
     <p class="chow">Tap a model's name for its wording; every page ends with the published reference.</p>
     <div class="cactions"><button class="begin" id="beginBtn">Begin</button><button class="clink" id="coverSources">Sources</button><button class="clink" id="coverSetup">Setup</button></div>
-    <p class="cfoot">Answers are model output, not references; no answer here should be used for a patient.<br>Dr Ganesh Sivasankara · MD · FRCA · FCARCSI · Consultant Anaesthetist</p>
+    <p class="cfoot">Answers are model output, not references; no answer here should be used for a patient.<br>Dr Ganesh Sivasankara · MD · FRCA · FCARCSI · Consultant Anaesthetist<br>The answers are stored in the page. If you enter a key of your own in Setup, it stays in this browser and the questions go to OpenRouter.<br>Built with Claude (Anthropic). It wrote the code and the first draft of the text; every figure and source was checked by me.<br>© 2026 Ganesh Sivasankara. Shared under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>: you may share it unchanged, with credit, but not for commercial use.<br>Spotted an error? <a href="https://www.linkedin.com/in/ganeshsivasankara" target="_blank" rel="noopener">Message me on LinkedIn</a>.</p>
   </div>
 </div>
 <div class="app" id="app">
@@ -213,7 +214,7 @@ textarea,input{font:inherit;color:inherit}
     <div class="row" style="margin-top:8px"><button class="b" id="bakeBtn">Save a copy with this run built in</button></div>
     <p class="help">The copy opens straight onto the cover page with these answers inside it and needs no key, so it can be put on a website or sent to anyone. Your key is not included.</p>
     <p class="foot" id="runMeta"></p>
-    <p class="foot">Answers are model output, not references. The spread between models, and between a model and itself, is the point of the tool; no answer here should be used for a patient.<br>Dr Ganesh Sivasankara · MD · FRCA · FCARCSI · Consultant Anaesthetist</p>
+    <p class="foot">Answers are model output, not references. The spread between models, and between a model and itself, is the point of the tool; no answer here should be used for a patient.<br>Dr Ganesh Sivasankara · MD · FRCA · FCARCSI · Consultant Anaesthetist<br>The answers are stored in the page. If you enter a key of your own in Setup, it stays in this browser and the questions go to OpenRouter.<br>Built with Claude (Anthropic). It wrote the code and the first draft of the text; every figure and source was checked by me.<br>© 2026 Ganesh Sivasankara. Shared under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>: you may share it unchanged, with credit, but not for commercial use.<br>Spotted an error? <a href="https://www.linkedin.com/in/ganeshsivasankara" target="_blank" rel="noopener">Message me on LinkedIn</a>.</p>
   </div>
 </div>
 
